@@ -1,6 +1,10 @@
 from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from chatterbot.trainers import ListTrainer
+import shutil
+
+#code to copy database to mounted folder
+shutil.copy("/app/db.sqlite3","/app/database/db.sqlite3")
 
 chatbot = ChatBot("deepThought",
     storage_adapter="chatterbot.storage.SQLStorageAdapter",
