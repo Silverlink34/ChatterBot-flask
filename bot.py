@@ -4,12 +4,19 @@ from chatterbot.trainers import ListTrainer
 
 chatbot = ChatBot("deepThought",
     storage_adapter="chatterbot.storage.SQLStorageAdapter",
-    database="/data/database.db")
+    database="/data/database.db",
+    logic_adapters=[
+        {
+            'import_path': 'chatterbot.logic.BestMatch',
+            'default_response': 'I am sorry, but I do not understand.',
+            'maximum_similarity_threshold': 0.90
+        }
+    ])
 
-trainer = ChatterBotCorpusTrainer(chatbot)
-trainer.train(
-    "chatterbot.corpus.english"
-)
+#trainer = ChatterBotCorpusTrainer(chatbot)
+#trainer.train(
+#    "chatterbot.corpus.english"
+#)
 
 def talk(msg):
     return chatbot.get_response(msg)
