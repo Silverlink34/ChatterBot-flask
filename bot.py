@@ -17,6 +17,7 @@ chatbot = ChatBot("deepThought",
             'default_response': 'I am sorry, but I do not understand.',
             'maximum_similarity_threshold': 0.90
         }
+        ,{'import_path': 'BibleDapter.BibleDapter'}
         #,'chatterbot.logic.MathematicalEvaluation'
     ])
 
